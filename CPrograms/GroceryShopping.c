@@ -16,15 +16,16 @@ int main () {
     float UserReciept = 0.0;
 
     float Items[] = {.99, 8.99, 2.99, 1.99, 3.99};
-    char Apple[5] = "Apple";
-    char Chicken[7] = "Chicken";
-    char Bread[5] = "Bread";
-    char Carrot[6] = "Carrot";
-    char Milk[4] = "Milk";
+    char Apple[6] = "Apple";
+    char Chicken[8] = "Chicken";
+    char Bread[6] = "Bread";
+    char Carrot[7] = "Carrot";
+    char Milk[5] = "Milk";
+    char money = '$';
 
     printf("Since I'm not using 'flow' statments I will ask you what you want in your basket\n");
     printf("Your options from this store are: %s, %s, %s, %s, %s\n", Apple, Chicken, Bread, Carrot, Milk);
-    printf("The cost of each item {%s:%.2f,\n %s:%.2f,\n %s:%.2f,\n %s:%.2f,\n %s:%.2f\n}", Apple, Items[0], Chicken, Items[1],
-    Bread, Items[2], Carrot, Items[3], Milk, Items[4]);
+    printf("The cost of each item \n{\n %s: %c%.2f,\n %s: %c%.2f,\n %s: %c%.2f,\n %s: %c%.2f,\n %s: %c%.2f\n}", Apple, money, Items[0], Chicken, money, Items[1],
+    Bread, money, Items[2], Carrot, money, Items[3], Milk, money, Items[4]);
     return 0;
 }
