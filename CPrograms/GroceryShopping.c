@@ -14,6 +14,8 @@ int main () {
 
     float UserBudget = 100.0;
     float UserReciept = 0.0;
+    char UserInput[100] = "";
+    char UserName[50] = "";
 
     float Items[] = {.99, 8.99, 2.99, 1.99, 3.99};
     char Apple[6] = "Apple";
@@ -23,9 +25,25 @@ int main () {
     char Milk[5] = "Milk";
     char money = '$';
 
-    printf("Since I'm not using 'flow' statments I will ask you what you want in your basket\n");
+    printf("We are very limited store... so sorry in advance:)\n");
     printf("Your options from this store are: %s, %s, %s, %s, %s\n", Apple, Chicken, Bread, Carrot, Milk);
     printf("The cost of each item \n{\n %s: %c%.2f,\n %s: %c%.2f,\n %s: %c%.2f,\n %s: %c%.2f,\n %s: %c%.2f\n}", Apple, money, Items[0], Chicken, money, Items[1],
     Bread, money, Items[2], Carrot, money, Items[3], Milk, money, Items[4]);
+    printf("Whats your name?\n");
+    scanf("%s", UserName);
+
+
+    printf("To shop at this store you must buy all in ascending order. Would you like to still shop? Y/N\n");
+    scanf("%s\n", UserInput);
+    printf("Muhhaha I don't care! You must buy all and play the game! Unless you ctrl C which you wouldn't do that... Right? Y/N\n");
+    scanf("%s", UserInput);
+
+    printf("Would you like to buy bread for %f??? Y/N\n", Items[2]);
+    scanf("%s", UserInput);
+    UserBudget = UserBudget - Items[2];
+    printf("Did you say no? Oopsie;) If you said yes well congrats you have bread now. Feed your family!\n");
+    printf("How about anyyy fruit!! You know an apple a day keeps the doctor away!! Would you like an apple? Y/N\n");
+    scanf("%s", UserInput);
+
     return 0;
 }
