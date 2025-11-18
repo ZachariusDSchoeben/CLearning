@@ -21,7 +21,7 @@ int main() {
     double HAAngle = 0.0;
 
     //User information
-    char UserSide[30] = "";
+    char UserText[30] = "";
     float SideValue = 0.0; 
 
     //conditional
@@ -37,20 +37,22 @@ int main() {
 
     printf("What side has a value, and what is the value the side holds?\n");
     printf("What side holds the value? ");
-    fgets(UserSide, sizeof(UserSide), stdin);
+    fgets(UserText, sizeof(UserText), stdin);
     printf("What is the value? ");
     scanf("%f", &SideValue);
 
-    if(UserSide == Hypotenuse)
-    {
-        printf("Hypotenuse\n");
-
-    } else if (UserSide == Adjacent) {
-        printf("Adjacent\n");
-
-    } else {
-        printf("Opposite\n");
-
+    switch (UserText[0]) {
+        case 'H':
+            printf("Working with Hypotenuse");
+            break;
+        case 'A':
+            printf("Working With Adjacent");
+            break;
+        case 'O':
+            printf("Working with Opposite");
+            break;
+        default:
+            printf("Didn't catch what side you are working with!");
     }
     return 0;
 }
