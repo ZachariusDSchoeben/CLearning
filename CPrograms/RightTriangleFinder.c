@@ -8,38 +8,34 @@ Different angles formula: SOH, CAH, TOA
 */
 
 int main() {
-    //Sides to be asked
-    double HypotenuseSide = 0.0;
-    double AdjacentSide = 0.0;
-    double OppositeSide = 0.0;
-    //Angles
-    //Hypotenuse + Opposite angle
-    double HOAngle = 0.0;
-    //Adjacent + Opposite Angle
-    double AOAngle = 0.0;
-    //Hypotenuse + Adjecent Angle
-    double HAAngle = 0.0;
 
-    //User information
-    char UserText[30] = "";
-    float SideValue = 0.0; 
-
-    //conditional
+    //User Side information
+    char UserText[30] = ""; 
     char Hypotenuse[30] = "Hypotenuse";
     char Adjacent[30] = "Adjecent";
     char Opposite[30] = "Opposite";
+    float SideValue = 0.0;
+    float AngleValue = 0.0;
 
+    //Answers
+    //Sides
+    float OppositeA = 0.0;
+    float AdjacentA = 0.0;
+    float HypotenuseA = 0.0;
 
-    //Formulas to be used
-    const double Tan = (OppositeSide / AdjacentSide);
-    const double Sin = (OppositeSide / HypotenuseSide);
-    const double Cos = (AdjacentSide / HypotenuseSide);
+    //Angles
+    float SinAngle = 0.0;
+    float TanAngle = 0.0;
+    float CosAngle = 0.0;
 
+    //Prompting user for information
     printf("What side has a value, and what is the value the side holds?\n");
     printf("What side holds the value? ");
     fgets(UserText, sizeof(UserText), stdin);
     printf("What is the value? ");
-    scanf("%f", &SideValue);
+    scanf("%.2f", &SideValue);
+    printf("What is the angle? ");
+    scanf("%.2f", &AngleValue);
 
     switch (UserText[0]) {
         case 'H':
@@ -49,7 +45,11 @@ int main() {
             printf("Working With Adjacent");
             break;
         case 'O':
-            printf("Working with Opposite");
+            const float OppositeA = SideValue;
+            HypotenuseA = OppositeA / (sinf(AngleValue));
+            AdjacentA = powf(HypotenuseA, 2) + powf(SideValue, 2);
+            sqrtf(AdjacentA);
+            printf("Opposite Side: %.2f, Adjacent Side: %.2f, Hypotenuse: %.2f", OppositeA, AdjacentA, HypotenuseA);
             break;
         default:
             printf("Didn't catch what side you are working with!");
