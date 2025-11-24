@@ -14,8 +14,8 @@ int main() {
     char Hypotenuse[30] = "Hypotenuse";
     char Adjacent[30] = "Adjecent";
     char Opposite[30] = "Opposite";
-    float SideValue = 0.0;
-    float AngleValue = 0.0;
+    float SideValue;
+    float AngleValue;
 
     //Answers
     //Sides
@@ -33,9 +33,11 @@ int main() {
     printf("What side holds the value? ");
     fgets(UserText, sizeof(UserText), stdin);
     printf("What is the value? ");
-    scanf("%.2f", &SideValue);
+    if (scanf("%f", &SideValue) != 1) return -1;
+    /*Problem here: no null byte at the end of the value
+    Skips to end after entering the value*/
     printf("What is the angle? ");
-    scanf("%.2f", &AngleValue);
+    if(scanf("%f", &AngleValue) != 1) return -1;
 
     switch (UserText[0]) {
         case 'H':
@@ -46,9 +48,8 @@ int main() {
             break;
         case 'O':
             const float OppositeA = SideValue;
-            HypotenuseA = OppositeA / (sinf(AngleValue));
-            AdjacentA = powf(HypotenuseA, 2) + powf(SideValue, 2);
-            sqrtf(AdjacentA);
+            HypotenuseA = OppositeA / sin(AngleValue);
+            AdjacentA = sqrt(powf(HypotenuseA, 2) + powf(SideValue, 2));
             printf("Opposite Side: %.2f, Adjacent Side: %.2f, Hypotenuse: %.2f", OppositeA, AdjacentA, HypotenuseA);
             break;
         default:
