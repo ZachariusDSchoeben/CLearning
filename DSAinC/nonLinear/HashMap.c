@@ -16,14 +16,35 @@ for item in data:
         storing_var[item] += 1;
 */
 
+
+/*
+Things needed
+    1.) Set structure
+    2.) Dictionary structure
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
 //Target = 8
 int main(){
     int arr[7] = {1, 3, 5, 7, 9};
+    int size_arr = sizeof(arr) / sizeof(arr[0]);
+
+    //hash is gonna be the key/value 
+    int* hash = (int*)malloc(size_arr * sizeof(int));
+
+    if (hash == NULL){
+        printf("No Memory");
+        return 1;
+    }
 
 
-
+    free(hash);
+    hash = NULL;
     return 0;
+}
+
+int hashmap(){
+
 }
