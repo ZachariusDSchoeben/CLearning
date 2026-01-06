@@ -1,0 +1,36 @@
+Big O Notation
+    Fastest: O(1); Accessing element or finding and element in index
+    2nd fast: O(log n); cutting a problem in half
+    3rd fast: O(n); Going through element at a time
+    medium: O(n log n); Sorting
+    slow: O(n^2); nested loops, brute forcing
+    
+
+
+
+Arrays
+    -Accessing O(1)
+        Goes to the exact location in the array because of indexes
+    -Appending at the end O(1)
+        Adds to end of the list
+    -Appenind at the beginning o(n)
+        Has to shift every elememt to the right to add at the beginning
+    -Useful Scenerios 
+        -Traverse a structure in order
+        -Access a specific indexes
+        -Compare elements from both ends
+
+Strings: Fast look up, smart windowing and fast traversal
+    -Strings are immutable; Creates new string when modifying
+    -Useful scenerios
+        Find the longest substring without repeating characters
+        Check if two strings are anagrams
+        Return all substrings that match a pattern
+
+Sets: tracking 
+    -Collection of unique elements
+    -Useful scenerios
+        -uniquess
+        -Existence
+        -Fast membership checks
+        -Sliding window
