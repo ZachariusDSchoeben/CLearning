@@ -24,27 +24,70 @@ Things needed
 */
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+#include <windows.h>
+/*
+test = [1 ,1 ,3, 4, 3]
 
-//Target = 8
+key = value
+
+struct
+    var.key = count
+    
+column = key
+row = value
+
+    0 0
+    0 0
+    0 0
+    0 0
+    0 0
+    0 0
+    0 0
+          {0}       {1}       {2}       {3}       {4}       {5}       {6}
+arr = {{'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0},}
+         0 , 1     0, 1      0, 1      0, 1      0, 1       0, 1     0, 1 
+*/
+ struct test1{
+    int arr[7][1];
+};
+
 int main(){
-    int arr[7] = {1, 3, 5, 7, 9};
-    int size_arr = sizeof(arr) / sizeof(arr[0]);
+    struct test1 Hash_Arr = {0};
+    int test_arr[7] = {4, 8, 3, 6, 1, 9, 3}; 
 
-    //hash is gonna be the key/value 
-    int* hash = (int*)malloc(size_arr * sizeof(int));
+//Trying to figure out how to access a specific postion and how to access the value/column
+/*    for (int i = 0; i < 7; i++){
+        for(int j = 0; j<2; j++){
+            Hash_Arr.arr[i][j] = 0;
+            printf("{%d} ",Hash_Arr.arr[i][j]);
+        }
+        printf("\n");
+        //Accessing a specific positon '[][]' coordinates. 
+    }
+*/
+    //1. Find a target sum
+    //2. Check which numbers in the arr are more than one
 
-    if (hash == NULL){
-        printf("No Memory");
-        return 1;
+    for(int i = 0; i< sizeof(test_arr)/ sizeof(test_arr[0]); i++){
+        for (int j = 0; j<2; j++){
+            if(Hash_Arr.arr[i][0] != test_arr[j]){
+                Hash_Arr.arr[i][0] = (char)test_arr[j];
+            } else if (Hash_Arr.arr[i][j] == test_arr[i]){
+                Hash_Arr.arr[i][1] += 1;
+            } else {
+                break;
+            }
+        }
     }
 
+    for (int i = 0; i < 7; i++){
+        for(int j = 0; j<2; j++){
+            printf("{%d} ",Hash_Arr.arr[i][j]);
+        }
+        printf("\n"); 
+    }
+    
 
-    free(hash);
-    hash = NULL;
     return 0;
-}
-
-int hashmap(){
-
 }
