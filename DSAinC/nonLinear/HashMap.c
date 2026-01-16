@@ -53,41 +53,37 @@ arr = {{'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0}, {'0', 0},}
 };
 
 int main(){
-    struct test1 Hash_Arr = {0};
-    int test_arr[7] = {4, 8, 3, 6, 1, 9, 3}; 
+    int test_arr[7] = {4, 4, 3, 6, 1, 6, 3};
+    int* set = malloc(sizeof(int));
 
-//Trying to figure out how to access a specific postion and how to access the value/column
-/*    for (int i = 0; i < 7; i++){
-        for(int j = 0; j<2; j++){
-            Hash_Arr.arr[i][j] = 0;
-            printf("{%d} ",Hash_Arr.arr[i][j]);
-        }
-        printf("\n");
-        //Accessing a specific positon '[][]' coordinates. 
-    }
-*/
-    //1. Find a target sum
-    //2. Check which numbers in the arr are more than one
-
-    for(int i = 0; i< sizeof(test_arr)/ sizeof(test_arr[0]); i++){
-        for (int j = 0; j<2; j++){
-            if(Hash_Arr.arr[i][0] != test_arr[j]){
-                Hash_Arr.arr[i][0] = (char)test_arr[j];
-            } else if (Hash_Arr.arr[i][j] == test_arr[i]){
-                Hash_Arr.arr[i][1] += 1;
-            } else {
-                break;
-            }
-        }
+    if(set == NULL){
+        printf("Insufficent Memory.");
+        return 1;
     }
 
-    for (int i = 0; i < 7; i++){
-        for(int j = 0; j<2; j++){
-            printf("{%d} ",Hash_Arr.arr[i][j]);
+
+    //Adding non-repeating elements to array.
+    for(int i = 0; i< sizeof(test_arr)/sizeof(test_arr[0]); i++){
+        if(i == 0){
+            set[0] = test_arr[i];
         }
-        printf("\n"); 
+        else if(set[i] == test_arr[i]){
+            continue;
+        }
+        else
+        {
+            set[i] = test_arr[i];
+        }    
+    }
+
+    //Checking to see if the array worked
+    for(int j = 0; j < sizeof(test_arr)/sizeof(test_arr[0]); j++){
+        printf("%d ", *(set + j));
     }
     
+
+    free(set);
+    set = NULL;
 
     return 0;
 }

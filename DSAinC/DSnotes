@@ -34,3 +34,11 @@ Sets: tracking
         -Existence
         -Fast membership checks
         -Sliding window
+
+
+Hash Maps:
+    Componets:
+        Key: A unique id or name for a value.
+        Hash Function: A computation to create the unqiue index where the value stays.
+
+        
